@@ -140,7 +140,7 @@ class XCLIP(CLIP4ClipPreTrainedModel):
 
         self.weight_fc = nn.Sequential(
             nn.Linear(2 * 512, 4 * 512), nn.ReLU(inplace=True),
-            nn.Linear(4 * 512, 1))
+            nn.Linear(4 * 512, 1), nn.Sigmoid())
 
         self.lstm_frame = nn.LSTM(input_size = 1024, hidden_size = 512, batch_first = True, bidirectional = False, num_layers = 5)
 
